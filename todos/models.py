@@ -16,6 +16,6 @@ class TodoItem (models.Model):
     list = models.ForeignKey(
         TodoList,
         related_name="items",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        null=True
+        )
