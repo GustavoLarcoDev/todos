@@ -8,7 +8,7 @@
 <body>
     <main>
         <div>
-            <h1>{{list_object.name}}</h1>
+            <h1>{{todo_list.name}}</h1>
             <p><a href="{% url 'todo_list_update' todo_list.id %}">Edit</a></p>
             <p><a href="{% url 'todo_list_delete' todo_list.id %}">Delete</a></p>
             <h2>Tasks</h2>
@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        {% for list in list_object.items.all %}
+                        {% for list in todo_list.items.all %}
                         <tr>
                         <td>{{list.task}}</td>
                         <td>{{list.due_date}}</td>
