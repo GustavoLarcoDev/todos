@@ -12,9 +12,9 @@ def todo_list_list(request):
 
 
 def todo_list_detail(request, id):
-    list = TodoList.objects.get(id=id)
+    todo_list = TodoList.objects.get(id=id)
     context = {
-        "list_object": list,
+        "todo_list": todo_list,
         }
     return render(request, "todos/TodoDetail.html", context)
 
@@ -33,3 +33,19 @@ def todo_list_create(request):
             "form": form,
         }
         return render(request, "todos/CreateTodo.html", context)
+
+
+def todo_list_update(request, id):
+    todolist = TodoList.objects.get(id=id)
+    if request.method == "POST":
+        form = TodoListForm(request.POST, instance=todolist)
+        if form.is_valid():
+            todolist = form.save()
+            return redirect("todo_list_detail", id=todolist.id)
+    else:
+        form = TodoListForm(instance=todolist)
+        context = {
+            "todolist_edit": todolist,
+            "form": form
+        }
+    return render(request, "todos/UpdateTodo.html", context)

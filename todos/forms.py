@@ -5,6 +5,6 @@ from todos.models import TodoList
 class TodoListForm(ModelForm):
     class Meta:
         model = TodoList
-        fields=[
+        fields = [
             "name",
         ]
