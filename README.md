@@ -1,67 +1,88 @@
-# Django One-Shot
+# To-Do App
 
-Complete the project specs from Learn.
+This is a To-Do list application project developed with Django. The application allows users to create, view, update, and delete task lists and their associated items.
 
-## Optional Debugging Tool Setup:
+## Features
 
-### Install Django Debug Toolbar
+- **Task Lists**: You can create and manage multiple task lists.
+- **Task Items**: Within each list, you can add, view, update, or delete items.
+- **User Interface**: The application uses HTML and CSS for the presentation of the views.
+- **CRUD Operations**: Full support for CRUD (Create, Read, Update, Delete) operations for lists and items.
 
-This toolbar will help you have visibility such as over your context in templates and the queries that are running to get your model data.
+## Requirements
 
-https://django-debug-toolbar.readthedocs.io/en/latest/
+- Python 3.x
+- Django 4.x
 
-### Pip Install
+## Installation
 
-```bash
-python -m pip install django-debug-toolbar
+1. Clone this repository to your local machine:
+    ```bash
+    git clone https://github.com/your_username/your_repository.git
+    ```
+
+2. Navigate to the project directory:
+    ```bash
+    cd your_repository
+    ```
+
+3. Create a virtual environment (optional but recommended):
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+4. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5. Run the database migrations:
+    ```bash
+    python manage.py migrate
+    ```
+
+6. Start the Django development server:
+    ```bash
+    python manage.py runserver
+    ```
+
+7. Open your browser and visit `http://127.0.0.1:8000/` to see the application in action.
+
+## Usage
+
+- **Home Page**: Displays a list of all task lists.
+- **List Details**: Click on a list to view the items it contains.
+- **Create New List**: You can create a new list from the home page.
+- **Add Items**: Once in the list details view, you can add new items.
+- **Update Items or Lists**: Edit the name of an existing list or item.
+- **Delete Items or Lists**: Delete any list or item you no longer need.
+
+## Project Structure
+
+```
+|-- manage.py
+|-- myproject/
+|   |-- __init__.py
+|   |-- settings.py
+|   |-- urls.py
+|   |-- wsgi.py
+|-- todo/
+|   |-- migrations/
+|   |-- templates/
+|   |-- static/
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- models.py
+|   |-- views.py
+|   |-- urls.py
+|   |-- forms.py
 ```
 
-### Install the App
+- **`myproject/`**: Contains the Django project’s configuration files.
+- **`todo/`**: Contains the "To-Do" application with models, views, templates, and static files.
 
-Add `"debug_toolbar"` to your `INSTALLED_APPS` setting:
+## Contributing
 
-```python
-INSTALLED_APPS = [
-    # ...
-    "debug_toolbar",
-    # ...
-]
-```
-
-### Add to urls
-
-Add django-debug-toolbar’s URLs to your project’s URLconf `urls.py`:
-
-```python
-from django.urls import include, path
-
-urlpatterns = [
-    # ...
-    path('__debug__/', include('debug_toolbar.urls')),
-]
-```
-
-### Add to MIDDLEWARE
-
-Add it to your `MIDDLEWARE` setting in `settings.py`:
-
-```python
-MIDDLEWARE = [
-    # ...
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # ...
-]
-```
-
-### Add to INTERNAL_IPS
-
-Add the following to `settings.py`:
-
-```python
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
-```
-
+Feel free to fork this project and submit pull requests with improvements or new features.
